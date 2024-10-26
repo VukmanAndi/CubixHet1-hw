@@ -1,27 +1,29 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
-
 //pure functional component
-function Component1({label, onChange}) {
+function Component1({ label, onChange }) {
   const [counter, setCounter] = useState(0);
   useEffect(() => {
-    const tick = setInterval(() => setCounter(e => e + 1), 1000);
+    const tick = setInterval(() => setCounter((e) => e + 1), 1000);
     return () => clearInterval(tick);
   }, [setCounter]);
 
   return (
     <div>
-      <b>{counter}</b>{" "}
-      <button onClick={()=>{
-        setCounter(e => e - 1);  
-      }} >{label}</button>
+      <b>{counter}</b>{' '}
+      <button
+        onClick={() => {
+          setCounter((e) => e - 1);
+        }}
+      >
+        {label}
+      </button>
       <button onClick={onChange}>meh</button>
-      <br/> <br/>
+      <br /> <br />
     </div>
   );
 }
-
 
 // class component - old version
 /*class Component1 extends React.Component {

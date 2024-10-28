@@ -73,7 +73,7 @@ function GameBoard({ cardNumber }) {
         }, 1000);
       }
     }
-  }, [firstCard, secondCard, setFirstCard, setSecondCard]);
+  }, [firstCard, secondCard, setFirstCard, setSecondCard, shuffledCards]);
 
   const handleClick = (card) => {
     console.log('clicked: ', card);

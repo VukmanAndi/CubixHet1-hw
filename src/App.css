@@ -29,9 +29,11 @@
 }
 
 .card {
+  padding: 5px;
   display: inline-block;
-  margin: 0 auto;
-  padding: 1rem;
+  user-drag: none;
+	-webkit-user-drag: none;
+	-moz-user-select: none;
 }
 
 @keyframes App-logo-spin {

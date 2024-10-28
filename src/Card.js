@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import cardBacks from './CardBacksData';
 
-function Card({ card, handleClick }) {
-  const [isFlipped, setIsFlipped] = useState(false);
+function Card({ card, handleClick, isClickAllowed }) {
+  const isClickable = isClickAllowed && !card.isMatched && !card.isFlipped;
   const cardBack = cardBacks[0];
 
   return (
     <img
-      style={{ padding: '5px', cursor: 'pointer', display: 'inline-block' }}
-      src={isFlipped ? card.publicImageUrl : cardBack.publicImageUrl}
+      className='card'
+      style={{
+        cursor: isClickable ? 'pointer' : 'not-allowed',
+      }}
+      src={card.isFlipped ? card.publicImageUrl : cardBack.publicImageUrl}
       alt={card.name}
-      onClick={ function() {
-        handleClick();
-        setIsFlipped((e) => !e);
+      onClick={function () {
+        if (isClickable) {
+          handleClick(card);
+        } else {
+          console.log('Card is not clickable');
+        }
       }}
     />
   );

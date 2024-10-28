@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import GameOptions from './GameOptions';
-import Table from './Table';
+import GameBoard from './GameBoard';
 
 /*
 *** N darab kártyánk *** van lefordítva, ha rákattintunk két kártyára, akkor azok megfordulnak
@@ -28,10 +28,9 @@ function App() {
     <div>
       <h1>Memory Game</h1>
       <p>
-        For this game session the selected card number is:{' '}
-        <b>{cardNumber}</b>
+        For this game session the selected card number is: <b>{cardNumber}</b>
       </p>
-      <Table key={`${cardNumber}-${shuffleTrigger}`} cardNumber={cardNumber} />
+      <GameBoard key={`${cardNumber}-${shuffleTrigger}`} cardNumber={cardNumber} />
       <GameOptions onShuffle={handleShuffle} />
     </div>
   );
